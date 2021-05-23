@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block head %}
+   <title>Weather</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to Global Weather</h1>
+    <form method="POST">
+	<div>City:
+        <input type="text" placeholder="Enter City" name="city" id="city">
+        <button class="btn btn-primary" type="submit">Search</button>
+  </div>      
+    </form>
+    {% if city %}
+    <div class="card">
+       <h2> 
+          <div class="card-title">
+             <i class="ri-home-8-line">    {{ city }} </i>
+          </div>
+       </h2>
+       <hr>
+        <div class="card-body">
+          <p><h4>Current status :</h4></p>
+          <hr>
+          <p><h4><i class="ri-celsius-fill">  {{ weather.temperature }}</i></h4></p>
+          <hr>
+          <p><h4><i class="ri-windy-fill">  {{ weather.wind }}</i></h4></p>
+          <hr>  
+          <p><h4><i class="ri-information-fill">  {{ weather.description }}</i></h4></p>
+          <hr>         
+        </div>
+    </div>
+    <hr>
+    {% endif %}   
+{% endblock%}
